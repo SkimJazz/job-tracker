@@ -9,6 +9,11 @@ import {
   Login,
   DashboardLayout,
   Error,
+  AddJob,
+  Stats,
+  AllJobs,
+  Profile,
+  Admin,
 } from "./pages";
 
 const router = createBrowserRouter([
@@ -20,7 +25,7 @@ const router = createBrowserRouter([
     // children prop set = to an array
     children: [
       {
-        /** INDEX PAGE Landing: 
+        /** INDEX PAGE Landing:
          * Location of Landing component in this array is irrelevant, as
          * long as index is included. */
         index: true,
@@ -38,6 +43,28 @@ const router = createBrowserRouter([
         // Dashboard => will become a Parent route
         path: "dashboard",
         element: <DashboardLayout />,
+        children: [
+          {
+            index: true,
+            element: <AddJob />,
+          },
+          {
+            path: "stats",
+            element: <Stats />,
+          },
+          {
+            path: "all-jobs",
+            element: <AllJobs />,
+          },
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+          {
+            path: "admin",
+            element: <Admin />,
+          },
+        ]
       },
     ],
   },
